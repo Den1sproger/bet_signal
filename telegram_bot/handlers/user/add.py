@@ -5,7 +5,7 @@ from database import Database
 
 
 
-@dp.message_handler(lambda message: message.text == '+', user_id=not ADMIN)
+@dp.message_handler(lambda message: message.text == '+')
 async def add_user(message: types.Message) -> None:
     chat_id = message.from_user.id
     if chat_id != ADMIN:

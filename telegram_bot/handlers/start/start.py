@@ -6,7 +6,7 @@ from ...bot_config import dp, ADMIN
 WELCOME_TEXT = """
 Привет👋👋👋
 Я буду присылать тебе сигналы на ставку
-в баскетбольных матчах🏀🏀🏀
+в спортивных матчах
 """
 
 HELP_TEXT_ADMIN = """

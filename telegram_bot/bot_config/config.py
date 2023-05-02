@@ -9,7 +9,7 @@ load_dotenv(find_dotenv())
 
 
 TOKEN = os.getenv('BETS_TOKEN')
-ADMIN = os.getenv('ADMIN')
+ADMIN = int(os.getenv('ADMIN'))
 
 bot = Bot(TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())

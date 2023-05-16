@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher import FSMContext
-from aiogram.utils.exceptions import ChatNotFound
+from aiogram.utils.exceptions import ChatNotFound, CantInitiateConversation
 from ...bot_config import dp, bot, ADMIN
 from .states import _ProfileStatesGroup
 from ...keyboards import get_mail_lists_kb, users_actions_ikb
@@ -242,7 +242,7 @@ async def get_msg_text(message: types.Message, state: FSMContext) -> None:
     for user in users_chat_id:
         try:
             await bot.send_message(chat_id=int(user), text=message.text)
-        except ChatNotFound:
+        except (ChatNotFound, CantInitiateConversation):
             username = db.get_one_data_cell(
                 f"SELECT nickname FROM subscribers WHERE chat_id = '{user}';"
             )
